@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-    public Material material;
+    public Color color;
     Renderer rend;
 
-    void start(){
+    void Start(){
+        Debug.Log("Let's do this thing!");
         rend = GetComponent<Renderer>();
     }
 
-    void UpDate(Collision col)
+    void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Player"){
-            rend.material = material;
+            rend.material.color = color;
+            Debug.Log("Collision");
         }
     }
 }
